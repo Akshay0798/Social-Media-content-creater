@@ -1,11 +1,10 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { NextResponse } from "next/server";
 import Stripe from "stripe";
 import { headers } from "next/headers";
 import {
   createOrUpdateSubscription,
   updateUserPoints,
-} from "@/utils/db/action";
+} from "@/utils/db/actions";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
   apiVersion: "2024-10-28.acacia",
@@ -89,7 +88,6 @@ export async function POST(req: Request) {
       }
 
       console.log(`Creating/updating subscription for user ${userId}`);
-      
       const updatedSubscription = await createOrUpdateSubscription(
         userId,
         subscriptionId,
