@@ -16,6 +16,7 @@ export default function RootLayout({
       appearance={{
         baseTheme: dark,
       }}
+      dynamic
     >
       <html lang="en" suppressHydrationWarning>
         <body className={`${inter.className} bg-black text-white antialiased`}>
